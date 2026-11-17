@@ -2,14 +2,14 @@ document.documentElement.classList.add("js");
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
 
 /* fill values */
-const ph=(el,txt)=>{el.textContent=txt;el.classList.add("ph")};
-$$("[data-price]").forEach(el=>{const v=SITE.prices[el.dataset.price];v?el.textContent=v+" lei":ph(el,"… lei")});
+const ph=(el,txt)=>{el.textContent=txt};
+$$("[data-price]").forEach(el=>{const v=SITE.prices[el.dataset.price];v?el.textContent=v+" lei":ph(el,"la cerere")});
 $$("[data-val]").forEach(el=>{if(el.hasAttribute("data-keep"))return;const k=el.dataset.val,v=SITE[k];
-  if(v){el.textContent=v}else if(el.tagName!=="A"&&!el.closest(".bar")){ph(el,"de completat")}
+  if(v){el.textContent=v}else{const opt=el.closest("[data-optional]");if(opt){opt.hidden=true}else if(el.tagName!=="A"&&!el.closest(".bar")){ph(el,el.dataset.ph||"de confirmat")}}
 });
 $$("[data-link]").forEach(el=>{
   const k=el.dataset.val,v=SITE[k];
-  if(!v){ if(el.hasAttribute("data-keep")){el.href=el.dataset.fallback||"#form"} else if(el.closest(".bar")){el.remove()} else {ph(el,"de completat")} return}
+  if(!v){ if(el.hasAttribute("data-keep")){el.href=el.dataset.fallback||"#form"} else if(el.closest(".bar")){el.remove()} else {ph(el,"la cerere")} return}
   el.href=(el.dataset.link==="tel"?"tel:"+v.replace(/[^\d+]/g,""):"mailto:"+v);
   if(!el.closest(".bar")&&!el.hasAttribute("data-keep"))el.textContent=v;
 });
@@ -19,7 +19,11 @@ $$("[data-go]").forEach(a=>{a.href=SITE.links[a.dataset.go]||"#form"});
 
 /* header, menu, mobile bar */
 const header=$("#top"),bar=$("#bar"),loc=$("#locatie"),frm=$("#form"),burger=$("#burger"),menu=$("#menu");
-const onScroll=()=>{const y=scrollY;header.classList.toggle("compact",y>40);if(bar&&loc&&frm)bar.classList.toggle("on",y>loc.offsetTop-innerHeight*.5&&y<frm.offsetTop-innerHeight*.5)};
+const target=frm||$("#book"),ftr=$("#contact");let lastY=scrollY;
+const onScroll=()=>{const y=scrollY;header.classList.toggle("compact",y>40);
+  if(bar){const show=(loc&&frm)?(y>loc.offsetTop-innerHeight*.5&&y<frm.offsetTop-innerHeight*.5):(y>320&&(target?y<target.offsetTop-innerHeight*.6:y+innerHeight<(ftr?ftr.offsetTop+60:1e9)));
+    bar.classList.toggle("on",show);
+    if(Math.abs(y-lastY)>6){bar.classList.toggle("small",y>lastY&&y>120);lastY=y}}};
 addEventListener("scroll",onScroll,{passive:true});onScroll();
 const setMenu=o=>{menu.classList.toggle("open",o);burger.setAttribute("aria-expanded",o);document.body.style.overflow=o?"hidden":"";if(o)header.classList.remove("compact")};
 burger.addEventListener("click",()=>setMenu(!menu.classList.contains("open")));

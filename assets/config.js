@@ -11,6 +11,7 @@ const SITE = {
   groupCap: "300",        // capacitatea zonei pentru grupuri
   minVouchers: "",     // comandă minimă vouchere
   menuUrl: "https://tavernaracilor.ro/meniu-qr/",   // pagina cu meniul complet
+  hours: "",           // program (opțional): apare în „Unde ne găsești” doar dacă e completat
   contactName: "",
   links: {             // unde duce „Explorează” la fiecare tip de eveniment
     corporate: "corporate.html",
@@ -20,7 +21,7 @@ const SITE = {
     linkedin: "", facebook: "", tiktok: "https://www.tiktok.com/@tavernaracilor.cluj",
     instagram: "https://www.instagram.com/tavernaracilor.cluj"
   },
-  phone: "",           // ex: "+40 7xx xxx xxx"
-  email: "contact@tavernaracilorcluj.ro",
+  phone: "0736 247 383",
+  email: "cluj@tavernaracilor.ro",
   formEndpoint: ""     // opțional: URL de formular (Formspree etc.). Gol = se deschide e-mailul
 };

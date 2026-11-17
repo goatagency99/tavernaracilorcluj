@@ -12,8 +12,8 @@ Repo: `bymarccc/tavernaracilorcluj`, branch `main` (orice push pe `main` se publ
 - `CERINTE-MANAGER.md`: lista de întrebări pentru managerul restaurantului
 
 ## Valori (în `assets/config.js`, obiectul `SITE`)
-Completat: prețuri pachete (Clasic 150, Platou 150, Seafood Boil 120 lei), minim participanți 50, capacitate 300, e-mail contact@tavernaracilorcluj.ro, Instagram și TikTok.
-Lipsesc: prețuri băuturi (Soft, Vin și bere, Complet), comandă minimă vouchere, telefon, persoană de contact, linkuri LinkedIn și Facebook, `formEndpoint` (fără el, formularele deschid aplicația de e-mail a vizitatorului).
+Completat: prețuri pachete (Clasic 150, Platou 150, Seafood Boil 120 lei), minim participanți 50, capacitate 300, telefon 0736 247 383, e-mail cluj@tavernaracilor.ro, adresa (Str. Alexandru Vaida Voevod 53B), Instagram și TikTok.
+Lipsesc: prețuri băuturi (Soft, Vin și bere, Complet; apar „la cerere”), comandă minimă vouchere (apare „de confirmat”), program (`SITE.hours`, rândul apare doar când e completat), linkuri LinkedIn și Facebook, `formEndpoint` (fără el, formularele deschid aplicația de e-mail a vizitatorului).
 
 ## De făcut / probleme cunoscute
 - Poze lipsă: hero pagină Seafood Boil (poza cu crab și porumb, cu logo peste), Octopus (meniuri), Business lunch și Burgers (scoase din listă), pagini private/catering folosesc poze de eveniment refolosite.
@@ -23,4 +23,4 @@ Lipsesc: prețuri băuturi (Soft, Vin și bere, Complet), comandă minimă vouch
 - Nu s-a cerut încă PR; site-ul e publicat direct de pe `main`.
 
 ## Preferințe ale clientului
-Aspect ca thelondonkitchen.com (culori prună `#552C3C`, crem `#F9F8F4`, salvie `#A5B788`, titluri Bebas Neue, text Lato, text mic, carduri plate), pagina Seafood Boil ca delmarvaseafoodboil.com dar cu desene și texte proprii. Tot textul public e în română. Nu copia logo-uri, desene sau texte ale altor firme. Verifică pe 390 px și 1440 px înainte de publicare.
+Aspect ca thelondonkitchen.com ca structură (titluri Bebas Neue, text Lato, text mic, carduri plate), dar în paleta logo-ului: negru `#121212`, alb, roșu `#D6271B` (accent). Butoane fixe jos pe mobil: telefon + „Solicită o ofertă”, mici la scroll în jos, mari la scroll în sus, pagina Seafood Boil ca delmarvaseafoodboil.com dar cu desene și texte proprii. Tot textul public e în română. Nu copia logo-uri, desene sau texte ale altor firme. Verifică pe 390 px și 1440 px înainte de publicare.

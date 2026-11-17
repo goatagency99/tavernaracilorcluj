@@ -5,6 +5,9 @@ a=h.index('<header class="top"');b=h.index('<main id="main">')
 hdr=h[a:b].replace('href="#','href="index.html#')
 c=h.index('<section class="on-plum contact"');d=h.index("</section>",c)+10
 foot=h[c:d].replace('href="#','href="index.html#')
+import re as _re
+_b=h[h.index('<div class="bar" id="bar">'):]
+BAR=_b[:_b.index('</div>')+6].replace('href="#form"','href="index.html#form"')
 def head(title,desc):
     x=re.sub(r"<title>.*?</title>",f"<title>{title} · Taverna Racilor Cluj</title>",hd)
     x=re.sub(r'<meta name="description" content="[^"]*">',f'<meta name="description" content="{desc}">',x)
@@ -51,6 +54,7 @@ def page(fn,title,desc,hero,alt,h1,paras,cards,pack,pre=''):
 {foot}
 </main>
 
+{BAR}
 <script src="assets/config.js"></script>
 <script src="assets/site.js"></script>
 </body>
